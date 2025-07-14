@@ -14,7 +14,9 @@ namespace MiniBankSystemOOP
         public string Name { get; set; } // Property to hold the account name
         public double Balance { get; private set; } // Property to hold the account balance
         public string NationalID { get; set; } // Property to hold the national ID
+        public string phoneNumber { get; set; } // Property to hold the phone number
 
+        public string Password { get; set; } // Property to hold the account password
 
 
 
