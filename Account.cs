@@ -12,6 +12,7 @@ namespace MiniBankSystemOOP
         private static int accountnumberCounter = 0; // Counter for generating unique account numbers
 
         public string AccountName { get; set; } // Property to hold the account name
+        public double Balance { get; private set; } // Property to hold the account balance
 
 
 
