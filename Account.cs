@@ -33,5 +33,16 @@ namespace MiniBankSystemOOP
             AccountNumber = "AC" + accountnumberCounter.ToString("D4"); // Generate a unique account number
         }
 
+        // defult constructor
+        public Account() {
+            NationalID = "0000000000"; // Set a default national ID
+
+            Name = "Default Name"; // Set a default name
+            IsActive = true; // Set the account as active by default
+            Accept = false; // Set the account as not accepted by default
+            accountnumberCounter++; // Increment the counter for unique account numbers
+            AccountNumber = "AC" + accountnumberCounter.ToString("D4"); // Generate a unique account number
+        }
+
     }
 }
