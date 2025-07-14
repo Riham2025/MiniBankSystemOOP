@@ -20,7 +20,18 @@ namespace MiniBankSystemOOP
         public bool IsActive { get; private set; } // Property to indicate if the account is active
         public bool Accept { get; set; } // Property to indicate if the account is accepted
 
-
+        // Constructor to initialize the account with a name, national ID, phone number, and password
+        public Account(string name, string nationalID, string phoneNumber, string password)
+        {
+            Name = name;
+            NationalID = nationalID;
+            this.phoneNumber = phoneNumber;
+            Password = password;
+            IsActive = true; // Set the account as active by default
+            Accept = false; // Set the account as not accepted by default
+            accountnumberCounter++; // Increment the counter for unique account numbers
+            AccountNumber = "AC" + accountnumberCounter.ToString("D4"); // Generate a unique account number
+        }
 
     }
 }
