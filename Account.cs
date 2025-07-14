@@ -18,6 +18,7 @@ namespace MiniBankSystemOOP
 
         public string Password { get; set; } // Property to hold the account password
         public bool IsActive { get; private set; } // Property to indicate if the account is active
+        public bool Accept { get; set; } // Property to indicate if the account is accepted
 
 
 
