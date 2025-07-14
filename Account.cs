@@ -17,7 +17,7 @@ namespace MiniBankSystemOOP
         public string phoneNumber { get; set; } // Property to hold the phone number
 
         public string Password { get; set; } // Property to hold the account password
-
+        public bool IsActive { get; private set; } // Property to indicate if the account is active
 
 
 
