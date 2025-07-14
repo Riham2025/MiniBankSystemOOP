@@ -9,7 +9,7 @@ namespace MiniBankSystemOOP
     class Account
     {
         private  static string AccountNumber; // Static variable to hold the account number
-        private static int accountnumberCounter = 0;
+        private static int accountnumberCounter = 0; // Counter for generating unique account numbers
 
 
 
