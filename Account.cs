@@ -8,6 +8,11 @@ namespace MiniBankSystemOOP
 {
     class Account
     {
+        private  static string AccountNumber; // Static variable to hold the account number
+        private static int accountnumberCounter = 0;
+
+
+
 
     }
 }
