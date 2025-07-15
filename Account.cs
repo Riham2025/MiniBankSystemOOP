@@ -6,45 +6,100 @@ using System.Threading.Tasks;
 
 namespace MiniBankSystemOOP
 {
-    class Account
+    public class Account
     {
-        public  static string AccountNumber; // Static variable to hold the account number
-        public static int accountnumberCounter = 0; // Counter for generating unique account numbers
+        public static int accountnumberCounter = 0;
 
-        public string Name { get; set; } // Property to hold the account name
-        public double Balance { get; set; } // Property to hold the account balance
-        public string NationalID { get; set; } // Property to hold the national ID
-        public string phoneNumber { get; set; } // Property to hold the phone number
+        public string AccountNumber { get; private set; }  // Now instance-level
+        public string Name { get; set; }
+        public double Balance { get; set; }
+        public string NationalID { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Password { get; set; }
 
-        public string Password { get; set; } // Property to hold the account password
-        public bool IsActive { get; set; } // Property to indicate if the account is active
-        public bool Accept { get; set; } // Property to indicate if the account is accepted
+        public bool IsActive { get; set; }
+        public bool Accept { get; set; }
 
-        // Constructor to initialize the account with a name, national ID, phone number, and password
         public Account(string name, string nationalID, string phoneNumber, string password)
         {
             Name = name;
             NationalID = nationalID;
-            this.phoneNumber = phoneNumber;
+            PhoneNumber = phoneNumber;
             Password = password;
-            IsActive = true; // Set the account as active by default
-            Accept = false; // Set the account as not accepted by default
-            accountnumberCounter++; // Increment the counter for unique account numbers
-            AccountNumber = "AC" + accountnumberCounter.ToString("D4"); // Generate a unique account number
+            Balance = 0.0;
+            IsActive = true;
+            Accept = false;
+            accountnumberCounter++;
+            AccountNumber = "AC" + accountnumberCounter.ToString("D4");
         }
 
-        // defult constructor
-        public Account() {
-            NationalID = "0000000000"; // Set a default national ID
-            Password = "defaultPassword"; // Set a default password
-            phoneNumber = "0000000000"; // Set a default phone number
-            Balance = 0.0; // Initialize the balance to zero
-            Name = "Default Name"; // Set a default name
-            IsActive = true; // Set the account as active by default
-            Accept = false; // Set the account as not accepted by default
-            accountnumberCounter++; // Increment the counter for unique account numbers
-            AccountNumber = "AC" + accountnumberCounter.ToString("D4"); // Generate a unique account number
+        public Account()
+        {
+            Name = "Default Name";
+            NationalID = "0000000000";
+            PhoneNumber = "0000000000";
+            Password = "defaultPassword";
+            Balance = 0.0;
+            IsActive = true;
+            Accept = false;
+            accountnumberCounter++;
+            AccountNumber = "AC" + accountnumberCounter.ToString("D4");
         }
 
-    }
-}
+
+
+
+
+
+
+
+
+
+
+        // Deposit Method
+        public void Deposit(double amount)
+            {
+                if (amount > 0)
+                {
+                    Balance += amount;
+                    TransactionHistory.Add($"Deposited: {amount:C} | New Balance: {Balance:C}");
+                }
+            }
+
+            // Withdraw Method
+            public bool Withdraw(double amount)
+            {
+                if (amount <= Balance)
+                {
+                    Balance -= amount;
+                    TransactionHistory.Add($"Withdrew: {amount:C} | New Balance: {Balance:C}");
+                    return true;
+                }
+                else
+                {
+                    TransactionHistory.Add($"Failed withdrawal: {amount:C} | Insufficient balance");
+                    return false;
+                }
+            }
+
+            // Show Balance
+            public void ShowBalance()
+            {
+                Console.WriteLine($"Account {AccountNumber} - Owner: {OwnerName}");
+                Console.WriteLine($"Current Balance: {Balance:C}");
+            }
+
+            // Show transaction history
+            public void ShowTransactionHistory()
+            {
+                Console.WriteLine($"Transaction History for Account {AccountNumber}:");
+                foreach (var entry in TransactionHistory)
+                {
+                    Console.WriteLine(entry);
+                }
+            }
+    }    
+
+
+}   
+
