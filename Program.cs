@@ -133,9 +133,62 @@
                 }
             }
 
+            // ===========Admin Menu============
+
+            static void AdminMenu()
+            {
+                bool inAdminMenu = true;
+                while (inAdminMenu)
+                {
+                    Console.Clear();
+                    Console.WriteLine("\n====== Admin Menu ======");
+                    Console.WriteLine("1. Process Next Account Request");
+                    //Console.WriteLine("2. View Submitted Reviews");
+                    //Console.WriteLine("3. View All Accounts");
+                    //Console.WriteLine("4. View Pending Account Requests");
+                    //Console.WriteLine("5. Search by Name or National ID");
+                    //Console.WriteLine("6. Delete Account by Number");
+                    //Console.WriteLine("7. Show Top 3 Richest Customers");
+                    //Console.WriteLine("8. Show Total Bank Balance");
+                    //Console.WriteLine("9. Export All Account Info to CSV");
+                    //Console.WriteLine("10. Approve/Reject Loan Requests");
+                    //Console.WriteLine("11. View Average Feedback Score");
+
+                    Console.WriteLine("0. Back to Main Menu");
+                    Console.Write("Select option: ");
+                    string adminChoice = Console.ReadLine();
+
+                    switch (adminChoice)
+                    {
+                        case "1": ProcessNextAccountRequest(); Console.ReadLine(); break;
+                        //case "2": ViewReviews(); Console.ReadLine(); break;
+                        //case "3": ViewAllAccounts(); Console.ReadLine(); break;
+                        //case "4": ViewPendingRequests(); break;
+                        //case "5": SearchAccountByNameOrID(); break;
+                        //case "6": DeleteAccountByNumber(); Console.ReadLine(); break;
+                        //case "7": ShowTopRichestCustomers(); Console.ReadLine(); break;
+                        //case "8": ShowTotalBankBalance(); Console.ReadLine(); break;
+                        //case "9": ExportAccountsToCsv(); Console.ReadLine(); break;
+                        //case "10": ApproveRejectLoans(); Console.ReadLine(); break;
+                        //case "11":
+                        //    ShowAverageFeedback(); Console.ReadLine(); break;
+
+
+
+                            Console.ReadLine();
+                            break;
+                        case "0": inAdminMenu = false; break;
+                        default: Console.WriteLine("Invalid choice."); break;
+                    }
+                }
+            }
+
+            ////////////////////////////////////////////////////////////////////
+
+
         }
 
-        
+
     }
         
 }
