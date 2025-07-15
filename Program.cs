@@ -255,7 +255,36 @@
                 Console.WriteLine("\nPress any key to return to menu...");
                 Console.ReadKey();
             }
-        
+
+        static void Login()
+        {
+            Console.Clear();
+            Console.WriteLine("--- Account Login ---");
+
+            Console.Write("Enter your Account Number: ");
+            string accNum = Console.ReadLine();
+
+            Console.Write("Enter your Password: ");
+            string pass = Console.ReadLine();
+
+            // Search for account
+            Account found = accounts.Find(a => a.AccountNumber == accNum && a.Password == pass);
+
+            if (found != null)
+            {
+                Console.WriteLine($"\n✅ Login successful. Welcome {found.Name}!");
+                Console.WriteLine($"Your balance: {found.Balance} OMR");
+            }
+            else
+            {
+                Console.WriteLine("\n❌ Login failed. Invalid account number or password.");
+            }
+
+            Console.WriteLine("\nPress any key to return to menu...");
+            Console.ReadKey();
+        }
+
+
     }
 }
 
