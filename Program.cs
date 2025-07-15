@@ -13,22 +13,18 @@
         {
 
             // main menu 
-            static void Main(string[] args)
-            {
-                bool running = true; // to keep the menu loop active
+          
+            
+                bool running = true;
 
                 while (running)
                 {
-                    Console.Clear(); // clear the console for a clean look
+                    Console.Clear();
                     Console.WriteLine("===== MINI BANK SYSTEM MENU =====");
                     Console.WriteLine("1. Create Account");
                     Console.WriteLine("2. View All Accounts");
-                    Console.WriteLine("3. Deposit");
-                    Console.WriteLine("4. Withdraw");
-                    Console.WriteLine("5. Check Balance");
-                    Console.WriteLine("6. Exit");
+                    Console.WriteLine("3. Exit");
                     Console.Write("Enter your choice: ");
-
                     string choice = Console.ReadLine();
 
                     switch (choice)
@@ -42,19 +38,7 @@
                             break;
 
                         case "3":
-                            Deposit();
-                            break;
-
-                        case "4":
-                            Withdraw();
-                            break;
-
-                        case "5":
-                            CheckBalance();
-                            break;
-
-                        case "6":
-                            running = false; // stop the loop
+                            running = false;
                             break;
 
                         default:
@@ -63,7 +47,9 @@
                             break;
                     }
                 }
-            }
+            
+        }
+            
 
 
             //// ===========User Menu===========
@@ -212,27 +198,61 @@
 
             static void CreateAccount()
             {
-                Console.WriteLine("\n--- Create New Account ---");
-                // Add logic later...
-                Console.WriteLine("Press any key to return to menu...");
+                Console.Clear();
+                Console.WriteLine("--- Create New Account ---");
+
+                Console.Write("Enter Full Name: ");
+                string name = Console.ReadLine();
+
+                Console.Write("Enter National ID: ");
+                string nationalID = Console.ReadLine();
+
+                Console.Write("Enter Phone Number: ");
+                string phone = Console.ReadLine();
+
+                Console.Write("Enter Password: ");
+                string password = Console.ReadLine();
+
+                Account newAccount = new Account(name, nationalID, phone, password);
+                accounts.Add(newAccount);
+
+                Console.WriteLine($"\n Account created successfully!");
+                Console.WriteLine($"Your Account Number: {newAccount.AccountNumber}");
+
+                Console.WriteLine("\nPress any key to return to menu...");
                 Console.ReadKey();
             }
 
             static void ViewAccounts()
             {
-                Console.WriteLine("\n--- All Accounts ---");
-                // Add logic later...
-                Console.WriteLine("Press any key to return to menu...");
+                Console.Clear();
+                Console.WriteLine("--- All Accounts ---");
+
+                if (accounts.Count == 0)
+                {
+                    Console.WriteLine(" No accounts found.");
+                }
+                else
+                {
+                    foreach (var acc in accounts)
+                    {
+                        Console.WriteLine($" Account Number: {acc.AccountNumber}");
+                        Console.WriteLine($"   Name: {acc.Name}");
+                        Console.WriteLine($"   National ID: {acc.NationalID}");
+                        Console.WriteLine($"   Phone: {acc.PhoneNumber}");
+                        Console.WriteLine($"   Balance: {acc.Balance}");
+                        Console.WriteLine($"   Status: {(acc.IsActive ? "Active" : "Inactive")}, Accepted: {acc.Accept}");
+                        Console.WriteLine("-------------------------------------");
+                    }
+                }
+
+                Console.WriteLine("\nPress any key to return to menu...");
                 Console.ReadKey();
             }
-
-            static void Deposit() { /* placeholder */ }
-            static void Withdraw() { /* placeholder */ }
-            static void CheckBalance() { /* placeholder */ }
-
         }
-
-
     }
+
+
+}
         
 }
