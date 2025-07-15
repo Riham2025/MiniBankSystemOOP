@@ -56,48 +56,48 @@ namespace MiniBankSystemOOP
 
 
 
-        // Deposit Method
-        public void Deposit(double amount)
-            {
-                if (amount > 0)
-                {
-                    Balance += amount;
-                    TransactionHistory.Add($"Deposited: {amount:C} | New Balance: {Balance:C}");
-                }
-            }
+        //// Deposit Method
+        //public void Deposit(double amount)
+        //    {
+        //        if (amount > 0)
+        //        {
+        //            Balance += amount;
+        //            TransactionHistory.Add($"Deposited: {amount:C} | New Balance: {Balance:C}");
+        //        }
+        //    }
 
-            // Withdraw Method
-            public bool Withdraw(double amount)
-            {
-                if (amount <= Balance)
-                {
-                    Balance -= amount;
-                    TransactionHistory.Add($"Withdrew: {amount:C} | New Balance: {Balance:C}");
-                    return true;
-                }
-                else
-                {
-                    TransactionHistory.Add($"Failed withdrawal: {amount:C} | Insufficient balance");
-                    return false;
-                }
-            }
+        //    // Withdraw Method
+        //    public bool Withdraw(double amount)
+        //    {
+        //        if (amount <= Balance)
+        //        {
+        //            Balance -= amount;
+        //            TransactionHistory.Add($"Withdrew: {amount:C} | New Balance: {Balance:C}");
+        //            return true;
+        //        }
+        //        else
+        //        {
+        //            TransactionHistory.Add($"Failed withdrawal: {amount:C} | Insufficient balance");
+        //            return false;
+        //        }
+        //    }
 
-            // Show Balance
-            public void ShowBalance()
-            {
-                Console.WriteLine($"Account {AccountNumber} - Owner: {OwnerName}");
-                Console.WriteLine($"Current Balance: {Balance:C}");
-            }
+        //    // Show Balance
+        //    public void ShowBalance()
+        //    {
+        //        Console.WriteLine($"Account {AccountNumber} - Owner: {OwnerName}");
+        //        Console.WriteLine($"Current Balance: {Balance:C}");
+        //    }
 
-            // Show transaction history
-            public void ShowTransactionHistory()
-            {
-                Console.WriteLine($"Transaction History for Account {AccountNumber}:");
-                foreach (var entry in TransactionHistory)
-                {
-                    Console.WriteLine(entry);
-                }
-            }
+        //    // Show transaction history
+        //    public void ShowTransactionHistory()
+        //    {
+        //        Console.WriteLine($"Transaction History for Account {AccountNumber}:");
+        //        foreach (var entry in TransactionHistory)
+        //        {
+        //            Console.WriteLine(entry);
+        //        }
+        //    }
     }    
 
 
