@@ -272,12 +272,12 @@
 
             if (found != null)
             {
-                Console.WriteLine($"\n✅ Login successful. Welcome {found.Name}!");
+                Console.WriteLine($"\n Login successful. Welcome {found.Name}!");
                 Console.WriteLine($"Your balance: {found.Balance} OMR");
             }
             else
             {
-                Console.WriteLine("\n❌ Login failed. Invalid account number or password.");
+                Console.WriteLine("\n Login failed. Invalid account number or password.");
             }
 
             Console.WriteLine("\nPress any key to return to menu...");
