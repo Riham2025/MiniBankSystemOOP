@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MiniBankSystemOOP
 {
-    public class Account
+        class Account
     {
         public static int accountnumberCounter = 0;
 

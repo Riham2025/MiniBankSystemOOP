@@ -1,6 +1,6 @@
 ﻿namespace MiniBankSystemOOP
 {
-    internal class Program
+     class Program
     {
 
 
@@ -24,6 +24,7 @@
                     Console.WriteLine("1. Create Account");
                     Console.WriteLine("2. View All Accounts");
                     Console.WriteLine("3. Login");
+                    Console.WriteLine("4. Deposit"); 
                     Console.WriteLine("4. Exit");
                     Console.Write("Enter your choice: ");
                     string choice = Console.ReadLine();
