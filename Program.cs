@@ -41,11 +41,16 @@
 
                         case "3":
                             Login();
-                        break;
+                           break;
 
                         case "4":
-                           running = false;
-                        break;
+                            Deposit(); 
+                            break;
+
+                        case "5":
+                            running = false;
+                            break;
+
 
 
                     default:
