@@ -298,6 +298,26 @@
             Console.Write("Enter your Account Number: ");
             string accNum = Console.ReadLine();
 
+            // Find the account
+            Account found = accounts.Find(a => a.AccountNumber == accNum);
+
+            if (found != null)
+            {
+                Console.Write("Enter amount to deposit: ");
+                string input = Console.ReadLine();
+
+                if (double.TryParse(input, out double amount) && amount > 0)
+                {
+                    found.Balance += amount;
+                    Console.WriteLine($" {amount} OMR deposited successfully.");
+                    Console.WriteLine($"New Balance: {found.Balance} OMR");
+                }
+                else
+                {
+                    Console.WriteLine(" Invalid amount. Please enter a number greater than 0.");
+                }
+            }
+
 
 
         }
