@@ -290,9 +290,18 @@
             Console.ReadKey();
         }
 
+        static void Deposit()
+        {
+            Console.Clear();
+            Console.WriteLine("--- Deposit ---");
 
+            Console.Write("Enter your Account Number: ");
+            string accNum = Console.ReadLine();
+
+
+
+        }
     }
-}
 
 
         
