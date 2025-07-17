@@ -27,5 +27,11 @@ namespace MiniBankSystemOOP
         {
             return pw1 == pw2 && pw1.Length >= 4;
         }
+
+        // Validate deposit amount
+        public bool IsValidDepositAmount(string input, out double amount)
+        {
+            return double.TryParse(input, out amount) && amount > 0;
+        }
     }
 }
