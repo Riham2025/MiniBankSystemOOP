@@ -225,10 +225,16 @@
             }
 
 
-            Console.Write("Enter National ID: ");
-                string nationalID = Console.ReadLine();
+            Console.Write("Enter your National ID (8 digits): ");
+            string nationalID = Console.ReadLine();
+            while (!Validator.IsValidNationalID(nationalID))
+            {
+                Console.Write("Invalid ID. It must be exactly 8 digits. Re-enter: ");
+                nationalID = Console.ReadLine();
+            }
 
-                Console.Write("Enter Phone Number: ");
+
+            Console.Write("Enter Phone Number: ");
                 string phone = Console.ReadLine();
 
                 Console.Write("Enter Password: ");

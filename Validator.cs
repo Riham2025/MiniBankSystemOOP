@@ -15,7 +15,7 @@ namespace MiniBankSystemOOP
         }
 
         // Validate National ID (exactly 8 digits)
-        public bool IsValidNationalID(string nationalID)
+        public static  bool IsValidNationalID(string nationalID)
         {
             return !string.IsNullOrWhiteSpace(nationalID) &&
                    nationalID.Length == 8 &&
