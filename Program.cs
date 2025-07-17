@@ -26,8 +26,9 @@
                     Console.WriteLine("1. Create Account");
                     Console.WriteLine("2. View All Accounts");
                     Console.WriteLine("3. Login");
-                    Console.WriteLine("4. Deposit"); 
-                    Console.WriteLine("4. Exit");
+                    Console.WriteLine("4. Deposit");
+                    Console.WriteLine("5. Withdraw");
+                    Console.WriteLine("6. Exit");
                     Console.Write("Enter your choice: ");
                     string choice = Console.ReadLine();
 
@@ -49,7 +50,11 @@
                             Deposit(); 
                             break;
 
-                        case "5":
+                    case "5":
+                        Withdraw();
+                        break;
+
+                    case "6":
                             running = false;
                             break;
 
@@ -311,23 +316,22 @@
         {
             Console.Clear();
             Console.WriteLine("--- Deposit ---");
-
             Console.Write("Enter your Account Number: ");
             string accNum = Console.ReadLine();
-
             // Find the account
             Account found = accounts.Find(a => a.AccountNumber == accNum);
-
             if (found != null)
             {
-                Console.Write("Enter amount to deposit: ");
+                Console.Write("Enter amount to Deposit: ");
                 string input = Console.ReadLine();
-                if (!Validator.IsValidDepositAmount(input, out double amount))
+                if (Validator.IsValidDepositAmount(input, out double amount))
                 {
-                    Console.WriteLine("Invalid amount. Please enter a positive number.");
-                    return;
+                    
+                        found.Balance += amount;
+                        Console.WriteLine($" Deposit successful! New balance: {found.Balance} OMR");
+                    
+                    
                 }
-
                 else
                 {
                     Console.WriteLine(" Invalid amount. Please enter a number greater than 0.");
@@ -337,14 +341,50 @@
             {
                 Console.WriteLine(" Account not found.");
             }
+            Console.WriteLine("\nPress any key to return to menu...");
+            Console.ReadKey();
+        }
 
+        static void Withdraw()
+        {
+            Console.Clear();
+            Console.WriteLine("--- Withdraw ---");
+            Console.Write("Enter your Account Number: ");
+            string accNum = Console.ReadLine();
+            // Find the account
+            Account found = accounts.Find(a => a.AccountNumber == accNum);
+            if (found != null)
+            {
+                Console.Write("Enter amount to withdraw: ");
+                string input = Console.ReadLine();
+                if (Validator.IsValidDepositAmount(input, out double amount))
+                {
+                    if (amount <= found.Balance)
+                    {
+                        found.Balance -= amount;
+                        Console.WriteLine($" Withdrawal successful! New balance: {found.Balance} OMR");
+                    }
+                    else
+                    {
+                        Console.WriteLine(" Insufficient balance.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine(" Invalid amount. Please enter a number greater than 0.");
+                }
+            }
+            else
+            {
+                Console.WriteLine(" Account not found.");
+            }
             Console.WriteLine("\nPress any key to return to menu...");
             Console.ReadKey();
         }
 
 
 
-     }
+    }
 }  
 
 
