@@ -234,7 +234,7 @@
             }
 
 
-            Console.Write("Enter Phone Number: ");
+                Console.Write("Enter Phone Number: ");
                 string phone = Console.ReadLine();
 
                 Console.Write("Enter Password: ");
@@ -322,13 +322,12 @@
             {
                 Console.Write("Enter amount to deposit: ");
                 string input = Console.ReadLine();
-
-                if (double.TryParse(input, out double amount) && amount > 0)
+                if (!Validator.IsValidDepositAmount(input, out double amount))
                 {
-                    found.Balance += amount;
-                    Console.WriteLine($" {amount} OMR deposited successfully.");
-                    Console.WriteLine($"New Balance: {found.Balance} OMR");
+                    Console.WriteLine("Invalid amount. Please enter a positive number.");
+                    return;
                 }
+
                 else
                 {
                     Console.WriteLine(" Invalid amount. Please enter a number greater than 0.");

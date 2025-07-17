@@ -23,13 +23,13 @@ namespace MiniBankSystemOOP
         }
 
         // Validate password (length and confirmation)
-        public bool IsValidPassword(string pw1, string pw2)
+        public  bool IsValidPassword(string pw1, string pw2)
         {
             return pw1 == pw2 && pw1.Length >= 4;
         }
 
         // Validate deposit amount
-        public bool IsValidDepositAmount(string input, out double amount)
+        public static bool IsValidDepositAmount(string input, out double amount)
         {
             return double.TryParse(input, out amount) && amount > 0;
         }
