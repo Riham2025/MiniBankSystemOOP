@@ -2,6 +2,8 @@
 {
      class Program
     {
+        Validator validator = new Validator();
+
 
 
         // List for accounts object 
