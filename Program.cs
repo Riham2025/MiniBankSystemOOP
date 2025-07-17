@@ -317,11 +317,19 @@
                     Console.WriteLine(" Invalid amount. Please enter a number greater than 0.");
                 }
             }
+            else
+            {
+                Console.WriteLine(" Account not found.");
+            }
 
-
-
+            Console.WriteLine("\nPress any key to return to menu...");
+            Console.ReadKey();
         }
-    }
+
+
+
+     }
+}  
 
 
         
