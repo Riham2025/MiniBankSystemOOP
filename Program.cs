@@ -215,10 +215,17 @@
                 Console.Clear();
                 Console.WriteLine("--- Create New Account ---");
 
-                Console.Write("Enter Full Name: ");
-                string name = Console.ReadLine();
+            Console.Write("Enter your name: ");
+            string name = Console.ReadLine();
 
-                Console.Write("Enter National ID: ");
+            while (!Validator.IsValidName(name))
+            {
+                Console.Write("Invalid name. Please re-enter: ");
+                name = Console.ReadLine();
+            }
+
+
+            Console.Write("Enter National ID: ");
                 string nationalID = Console.ReadLine();
 
                 Console.Write("Enter Phone Number: ");
@@ -235,6 +242,8 @@
 
                 Console.WriteLine("\nPress any key to return to menu...");
                 Console.ReadKey();
+
+
             }
 
             static void ViewAccounts()
