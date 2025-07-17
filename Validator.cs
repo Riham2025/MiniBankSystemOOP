@@ -13,12 +13,19 @@ namespace MiniBankSystemOOP
         {
             return !string.IsNullOrWhiteSpace(name) && !name.Any(char.IsDigit);
         }
+
         // Validate National ID (exactly 8 digits)
         public bool IsValidNationalID(string nationalID)
         {
             return !string.IsNullOrWhiteSpace(nationalID) &&
                    nationalID.Length == 8 &&
                    nationalID.All(char.IsDigit);
+        }
+
+        // Validate password (length and confirmation)
+        public bool IsValidPassword(string pw1, string pw2)
+        {
+            return pw1 == pw2 && pw1.Length >= 4;
         }
     }
 }
