@@ -13,5 +13,12 @@ namespace MiniBankSystemOOP
         {
             return !string.IsNullOrWhiteSpace(name) && !name.Any(char.IsDigit);
         }
+        // Validate National ID (exactly 8 digits)
+        public bool IsValidNationalID(string nationalID)
+        {
+            return !string.IsNullOrWhiteSpace(nationalID) &&
+                   nationalID.Length == 8 &&
+                   nationalID.All(char.IsDigit);
+        }
     }
 }
